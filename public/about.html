@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        /* Modern Polished School Website Styles */
+
+         /* General Body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f9fafb 0%, #e3e9f7 100%);
+            color: #212529;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+    
+        /* Toggler Button: Floating Circle with Animated Bars */
+        .navbar-toggler {
+            border: none;
+            /* background: #fff; */
+            outline: none;
+            padding: 0.5rem 0.7rem;
+            border-radius: 50%;
+            box-shadow: 0 2px 12px rgba(0, 123, 255, 0.10);
+            transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1051;
+        }
+    
+        .navbar-toggler:focus,
+        .navbar-toggler:hover {
+            /* background: #e3e9f7; */
+            box-shadow: 0 6px 24px #007bff22;
+            transform: scale(1.08);
+        }
+    
+        .navbar-toggler-icon {
+            width: 28px;
+            height: 22px;
+            position: relative;
+            display: inline-block;
+            background: none;
+        }
+    
+        .navbar-toggler-icon span,
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #047331;
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(.68, -0.55, .27, 1.55);
+        }
+    
+        .navbar-toggler-icon span {
+            top: 9px;
+        }
+    
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
+    
+        .navbar-toggler-icon::after {
+            bottom: 0;
+        }
+    
+        .navbar-toggler.collapsed .navbar-toggler-icon::before {
+            transform: none;
+        }
+    
+        .navbar-toggler.collapsed .navbar-toggler-icon::after {
+            transform: none;
+        }
+    
+        .navbar-toggler.collapsed .navbar-toggler-icon span {
+            opacity: 1;
+        }
+    
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+            transform: translateY(9px) rotate(45deg);
+        }
+    
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+    
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon span {
+            opacity: 0;
+        }
+    
+        /* Slide-in Mobile Navbar Menu */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: #fff;
+                border-radius: 18px;
+                box-shadow: 0 8px 32px #007bff11;
+                margin-top: 0.7rem;
+                padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+                position: absolute;
+                top: 60px;
+                left: 10px;
+                right: 10px;
+                min-width: 90vw;
+                z-index: 1040;
+                transform: translateY(-40px) scale(0.98);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.45s cubic-bezier(.68, -0.55, .27, 1.55);
+            }
+    
+            .navbar-collapse.show {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+                pointer-events: auto;
+                animation: slideInNav 0.5s cubic-bezier(.68, -0.55, .27, 1.55);
+            }
+    
+            .navbar-nav {
+                flex-direction: column !important;
+                gap: 1.1rem;
+            }
+    
+            .navbar-nav .nav-link {
+                font-size: 1.15rem;
+                padding: 0.9rem 0.7rem;
+                border-radius: 10px;
+                text-align: left;
+                transition: background 0.2s, color 0.2s;
+            }
+    
+            .navbar-nav .nav-link.active,
+            .navbar-nav .nav-link:hover {
+                background: #e3e9f7;
+                color: #047331 !important;
+            }
+        }
+    
+        @keyframes slideInNav {
+            from {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.98);
+            }
+    
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    
+        /* Navbar */
+        .navbar {
+            /* border-radius: 0 0 18px 18px; */
+            transition: box-shadow 0.3s, background 0.4s;
+            background: transparent !important;
+            box-shadow: none;
+        }
+    
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.97) !important;
+            box-shadow: 0 4px 24px rgba(0, 123, 255, 0.08);
+            transition: background 0.4s, box-shadow 0.3s;
+        }
+    
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: #047331 !important;
+        }
+    
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            margin-right: 10px;
+            transition: color 0.2s, background 0.2s;
+        }
+    
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #047331 !important;
+            background: #e3e9f7;
+            border-radius: 8px;
+        }
+    
+        .navbar-nav .btn-primary {
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.12);
+            transition: background 0.2s, box-shadow 0.2s;
+            border-radius: 50px;
+    
+        }
+    
+        .navbar-nav .btn-primary:hover {
+            border-radius: 50px;
+            /* box-shadow: 0 4px 16px rgba(0, 86, 179, 0.18); */
+        }
+        .hero-image-section {
+            overflow-x: hidden;
+
+            position: relative;
+            min-height: 105vh;
+            height: 130vh;
+            width: 98.5vw;
+            margin-bottom: 2.5rem;
+            /* border-radius: 0 0 24px 24px; */
+            box-shadow: 0 8px 32px rgba(0, 123, 255, 0.10);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-img {
+            overflow-x: hidden;
+
+            width: 98.5vw;
+            height: 130vh;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.7) blur(1px) grayscale(10%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            animation: heroZoom 8s ease-in-out infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(55deg, #047331 5%, rgba(107, 193, 255, 0.4) 50%, #ffffff 100%);
+            z-index: 2;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 3;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .hero-text .btn {
+            opacity: 1 !important;
+            animation: fadeInUp 1.2s 0.7s both !important;
+            transition: none !important;
+            visibility: visible !important;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.07);
+            }
+        }
+
+           
+@media (max-width: 767px) {
+    .hero-image-section, .hero-img-slider, .hero-img-slide {
+        min-height: 760px !important;
+        height: 760px !important;
+        width: 100vw !important;
+        /* border-radius: 0 0 18px 18px; */
+    }
+    .hero-text h1 { font-size: 1.5rem;     margin-top: 200px;
+    }
+    .hero-text p { font-size: 1rem;    margin-top: 5px;
+    }
+}
+.hero-text .btn {
+    margin-top: 10px;
+    opacity: 1 !important;
+    animation: fadeInUp 1.2s 0.7s both !important;
+    transition: none !important;
+    visibility: visible !important;
+}
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes heroZoom {
+    0% { transform: scale(1);}
+    100% { transform: scale(1.07);}
+}
+        /* Hero Section */
+        .section-title {
+            font-weight: 800;
+            font-size: 2.7rem;
+            color: #007bff;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: #495057;
+        }
+
+        .btn-lg {
+            padding: 0.8rem 2.2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-outline-primary {
+            border-radius: 30px;
+            font-weight: 600;
+            border-width: 2px;
+        }
+
+        /* Features Section */
+        .row.text-center .col-md-4 {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+            padding: 2rem 1rem 1.5rem 1rem;
+            margin-bottom: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .row.text-center .col-md-4:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0, 123, 255, 0.10);
+        }
+
+        .fa-3x {
+            animation: icon-pop 1.2s cubic-bezier(.68, -0.55, .27, 1.55) infinite alternate;
+        }
+
+        @keyframes icon-pop {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.12);
+            }
+        }
+
+        h3 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #555;
+        }
+
+        /* About Preview */
+        section.mt-5 {
+            background: linear-gradient(90deg, #e3e9f7 0%, #f9fafb 100%);
+            border-radius: 18px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 2px 16px rgba(0, 123, 255, 0.06);
+            margin-top: 3rem !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .row.text-center .col-md-4 {
+                margin-bottom: 1.2rem;
+                padding: 1.2rem 0.5rem;
+            }
+
+            section.mt-5 {
+                padding: 1.2rem 0.7rem;
+            }
+        }
+
+
+
+        .footer-section {
+            background: linear-gradient(120deg, #f9fafb 0%, #e3e9f7 100%);
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -2px 16px rgba(0, 123, 255, 0.06);
+            animation: fadeInFooter 1.2s;
+            color: #047331;
+        }
+
+        .footer-section h5,
+        .footer-section h6 {
+            letter-spacing: 1px;
+            color: #047331;
+        }
+
+        .footer-section ul li a:hover {
+            color: #047331 !important;
+            text-decoration: underline;
+            transition: color 0.2s;
+            color:#047331;
+        }
+
+        .footer-section .fa-brands,
+        .footer-section .fa-solid {
+            transition: transform 0.2s, color 0.2s;
+            color: #047331;
+        }
+
+        .footer-section .fa-brands:hover,
+        .footer-section .fa-solid:hover {
+            color: #047331 !important;
+            transform: scale(1.2) rotate(-8deg);
+        }
+
+        .footer-section ul {
+            padding-left: 0;
+        }
+
+        @keyframes fadeInFooter {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .footer-section .col-md-4,
+            .footer-section .col-6 {
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-section {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        /* ...existing code... */
+        @media (max-width: 767px) {
+            .footer-section .row {
+                flex-direction: column !important;
+                text-align: left !important;
+            }
+
+            .footer-section .col-md-4,
+            .footer-section .col-6,
+            .footer-section .col-12 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                margin-bottom: 1.5rem;
+                text-align: left !important;
+            }
+
+            .footer-section {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                font-size: 0.95rem;
+            }
+
+            .footer-section ul {
+                margin-bottom: 1rem;
+            }
+
+            .footer-section .row.align-items-center {
+                gap: 0 !important;
+            }
+
+            .footer-section .col-md-4:last-child {
+                margin-bottom: 0;
+            }
+
+            .footer-section .col-md-4 .mb-2:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .footer-section .col-md-4 .mb-1:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .footer-section .col-md-4 .mb-0:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .footer-section .col-md-4 .mb-2 {
+                margin-bottom: 1rem !important;
+            }
+
+            .footer-section .col-md-4 .mb-1 {
+                margin-bottom: 0.7rem !important;
+            }
+
+            .footer-section .col-md-4 .small {
+                font-size: 0.97rem;
+            }
+
+            .footer-section .fs-5 {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+
+
+
+
+
+
+
+
+
+.about-hero {
+            color: #fff;
+            padding: 70px 0 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-hero .display-5 {
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 24px #0005;
+        }
+        .about-hero .lead {
+            font-size: 1.3rem;
+            color: #e3e9f7;
+            margin-bottom: 1.5rem;
+        }
+        .about-hero .hero-img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 24px #007bff33;
+        }
+        .about-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,123,255,0.06);
+            padding: 2.5rem 2rem;
+            margin-top: -60px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .about-section h2 {
+            color: #047331;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+        .about-section .icon {
+            color: #047331;
+            font-size: 2.2rem;
+            margin-bottom: 0.7rem;
+        }
+        .about-section .about-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .about-section .value-card {
+            flex: 1 1 220px;
+            background: #f9fafb;
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px #007bff11;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .about-section .value-card:hover {
+            box-shadow: 0 8px 32px #007bff22;
+            transform: translateY(-6px) scale(1.03);
+        }
+        .about-section .value-card .fa-solid {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .about-section .value-title {
+            font-weight: 600;
+            color: #047331;
+            margin-bottom: 0.4rem;
+        }
+        .about-section .value-desc {
+            font-size: 1rem;
+            color: #444;
+        }
+        .about-section .about-stats {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .about-section .stat-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #007bff11;
+            padding: 1.2rem 1.5rem;
+            min-width: 160px;
+            text-align: center;
+        }
+        .about-section .stat-card .fa-solid {
+            color: #047331;
+            font-size: 1.7rem;
+            margin-bottom: 0.3rem;
+        }
+        .about-section .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #047331;
+        }
+        .about-section .stat-label {
+            font-size: 1rem;
+            color: #555;
+        }
+        .about-section .about-img {
+            border-radius: 16px;
+            box-shadow: 0 2px 16px #007bff22;
+            width: 100%;
+            max-width: 420px;
+        }
+        @media (max-width: 991px) {
+            .about-section {
+                padding: 1.5rem 0.7rem;
+            }
+            .about-section .about-values {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .about-section .about-stats {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .about-hero {
+                padding: 40px 0 20px 0;
+            }
+            .about-section {
+                margin-top: -30px;
+                padding: 1rem 0.3rem;
+            }
+            .about-section .about-img {
+                margin-bottom: 1.2rem;
+            }
+        }
+
+        
+
+        
+
+        .btn-primary {
+            background-color: #047331;
+  border: none;
+}
+
+.text-green {
+    color: #047331 !important;
+}
+.btn-green {
+    background-color: #047331;
+    color: #fff;
+    border: none;
+}
+
+.btn-green:hover {
+    background-color: #035a28;
+}
+
+
+.floating-img {
+  position: absolute;
+  bottom: 0;
+  right: 6px;
+  width: 10vw;          /* 10% of viewport width */
+  max-width: 120px;     /* max size */
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  transition: width 0.3s ease;
+  z-index: 10;
+}
+
+/* For small devices: reduce size and reposition */
+@media (max-width: 768px) {
+  .floating-img {
+    width: 15vw;
+    max-width: 80px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-img {
+    width: 20vw;
+    max-width: 60px;
+    right: 12px;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <h5 style="color: black;">Thengisangaye Primary School</h5>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fw-semibold">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Gallery
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white px-3 ms-2" href="apply.html">Apply Now</a>
+                </li>
+            </ul>
+        </div>
+
+        </div>
+    </nav>
+    <!-- Animated Hero Image Section -->
+<section class="hero-image-section d-flex align-items-center justify-content-center"
+    style="min-height: 360px; position: relative; overflow: hidden;margin-top: -150px;">
+        <img src="./images/Block .jpg"
+            alt="School Hero" class="hero-img" data-aos="zoom-in" />
+        <div class="hero-overlay"></div>
+        <div class="hero-text text-center w-100" data-aos="fade-down">
+            <h1 class="display-4 fw-bold text-white mb-3" style="text-shadow:0 4px 24px #0008;">About Us
+            </h1>
+            <p class="lead text-white mb-4" style="text-shadow:0 2px 8px #0008;">A place where every child shines</p>
+            <a href="apply.html" class="btn btn-light btn-lg shadow">Join Us</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->   
+<main class="container my-5">
+<!-- About Section -->
+<section class="about-section container" data-aos="fade-down">
+    <div class="row align-items-center mb-4">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+            <img src="./images/principal.jpg"
+                alt="School Life" class="about-img img-fluid">
+        </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <h2><i class=""></i> About Us</h2>
+                <p class="fs-5">
+                    Thengisayangaye Primary School Established in 2000 in the Thokoza area of Ulundi, the school began with
+                    just Grade 1 and two teachers under the leadership of Mrs. M Sikhosana, who retired in 2014. Now a public
+                    school for boys and girls aged five to twelve (Grade R to 7), the school aims to lay a strong and effective
+                    foundation for holistic child development. Its mission is to help learners reach their full potential by
+                    promoting
+                    responsibility, respect, discipline, and confidence. The school also strives for excellence and efficiency
+                    through
+                    meaningful educator-learner interaction, support for socialisation, identity formation, community engagement,
+                    and
+                    preparing learners to thrive in society as responsible adults.
+                </p>
+                <ul class="list-unstyled fs-6">
+                    <li class="mb-2"><i class="fa-solid fa-check-circle text-success me-2"></i>Founded in 2000</li>
+                    <li class="mb-2"><i class="fa-solid fa-users text-primary me-2"></i>Over 700 students enrolled</li>
+                    <li class="mb-2"><i class="fa-solid fa-chalkboard-user text-info me-2"></i>Highly qualified, caring
+                        staff</li>
+                </ul>
+            </div>
+            </div>
+            <div class="about-values">
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-eye icon"></i>
+                    <div class="value-title">Vision</div>
+                    <div class="value-desc">Is to lay a good and effective foundation in the development of the child’s totality.
+                    </div>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-gem icon"></i>
+                    <div class="value-title">Values</div>
+                    <div class="value-desc">
+                        Responsibility, Respect ,Self-discipline, Confidence, Social and emotional development, Community
+                        involvement, Educational excellence
+            
+                    </div>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-lightbulb icon"></i>
+                    <div class="value-title">Mission</div>
+                    <div class="value-desc">
+                        Is to provide our learners with opportunities to develop to their full potential by being
+                        active, responsible, respectful, self-disciplined and confident.
+            
+                    </div>
+                </div>
+            </div>
+
+    <section class="mt-5 position-relative" data-aos="fade-right" style="padding-bottom: 60px;">
+        <h2 class="section-title text-green" data-aos="zoom-in">School Management and Staff</h2>
+    
+        <ul>
+            <li data-aos="fade-up"><b>School Principal:</b> Mrs A. F Mfeka</li>
+            <li data-aos="fade-up" data-aos-delay="100"><b>Deputy Principal:</b> Mr Z. D Zulu</li>
+        </ul>
+    
+        <p data-aos="fade-right" data-aos-delay="150">
+            <strong><b>Foundation Phase Grade R to 3</b></strong>
+        </p>
+        <ul>
+            <li data-aos="fade-up"><b>Departmental Head:</b> Mrs O.M Mtshali</li>
+            <li data-aos="fade-up" data-aos-delay="50"><b>Grade R:</b> Ms M.C Mhlophe & Ms G.F Magwaza</li>
+            <li data-aos="fade-up" data-aos-delay="100"><b>Grade 1:</b> Mrs M.S Sikhakhane & Ms T.E Nene</li>
+            <li data-aos="fade-up" data-aos-delay="150"><b>Grade 2:</b> Mrs N Magubane & Mrs N Mvubu</li>
+            <li data-aos="fade-up" data-aos-delay="200"><b>Grade 3:</b> Mrs T.M Mzila & Mrs S.F Mdlalose</li>
+        </ul>
+    
+        <p data-aos="fade-right" data-aos-delay="250">
+            <strong><b>Intermediate and Senior Phase Grade 4 to 7</b></strong>
+        </p>
+        <ul>
+            <li data-aos="fade-up"><b>Departmental Head:</b> Ms B N G Mtshali</li>
+            <li data-aos="fade-up" data-aos-delay="50"><b>Grade 4:</b> Mrs B.P Mbatha, Mrs N.D Zungu & Mrs N.P Mbatha</li>
+            <li data-aos="fade-up" data-aos-delay="100"><b>Grade 5:</b> Mrs N.O Mthembu & Mr S.C Masondo</li>
+            <li data-aos="fade-up" data-aos-delay="150"><b>Grade 6:</b> Mrs S.A Ngema & Mrs N.E Mfeka</li>
+            <li data-aos="fade-up" data-aos-delay="200"><b>Grade 7:</b> Mrs S.P Ncanana & Mr N. Ngcobo</li>
+        </ul>
+    
+        <p data-aos="fade-right" data-aos-delay="300">
+            <strong><b>School Governance (SGB)</b></strong>
+        </p>
+        <ul>
+            <li data-aos="fade-up"><b>Chairperson:</b> Mr M.T Mbatha</li>
+            <li data-aos="fade-up" data-aos-delay="50"><b>Deputy Chair:</b> Mrs Madumisa Zungu</li>
+            <li data-aos="fade-up" data-aos-delay="100"><b>Secretary:</b> Mrs S.F Mdlalose</li>
+            <li data-aos="fade-up" data-aos-delay="150"><b>Deputy Secretary:</b> Mrs N Magubane</li>
+            <li data-aos="fade-up" data-aos-delay="200"><b>Treasury:</b>
+                Mrs N Sithole; Mr N Ngcobo; Mrs Kunene; Mr Sikhakhane; Mr Ngobese
+            </li>
+        </ul>
+    
+        <!-- Small image at bottom right -->
+<img src="./images/School badge.jpg" alt="School" class="floating-img" data-aos="zoom-in" data-aos-delay="400" />
+
+    </section>
+
+    
+    <div class="about-stats">
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="500">
+            <i class="fa-solid fa-award"></i>
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Awards Won</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="600">
+            <i class="fa-solid fa-futbol"></i>
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Sports & Clubs</div>
+        </div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="700">
+            <i class="fa-solid fa-users"></i>
+            <div class="stat-number">700+</div>
+            <div class="stat-label">Happy Learners</div>
+        </div>
+    </div>
+</section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="footer-section footer-green pt-5 pb-3 mt-5 border-top shadow-sm">
+        <div class="container">
+            <div class="row text-start">
+                <!-- About -->
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <h6 class="fw-bold text-green mb-3"><i class="fa-solid fa-graduation-cap me-2 text-green"></i>About
+                        Thengisangaye Primary School</h6>
+                    <p>
+                        Thengisangaye Primary School is dedicated to providing a nurturing and innovative environment
+                        for learners from Grade R to Grade 7. Our mission is to inspire excellence and lifelong learning.
+                    </p>
+                    <p class="small text-muted mb-0">&copy; 2025 Thengisangaye Primary School. All rights reserved.</p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <h6 class="fw-bold text-green mb-3"><i class="fa-solid fa-link me-2 text-green"></i>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-house me-2 text-green"></i>Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-users me-2 text-green"></i>About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-cogs me-2 text-green"></i>Services</a></li>
+                        <li class="mb-2"><a href="gallery.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-image me-2 text-green"></i>Gallery</a></li>
+                        <li class="mb-2"><a href="apply.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-file-signature me-2 text-green"></i>Apply Now</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-dark"><i
+                                    class="fa-solid fa-envelope-open-text me-2 text-green"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact & Social -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <h6 class="fw-bold text-green mb-3"><i class="fa-solid fa-address-book me-2 text-green"></i>Contact Us
+                    </h6>
+                    <p class="mb-1"><i class="fa-solid fa-location-dot me-2 text-green"></i>Thokoza Area-Ulundi Next to
+                        Prince <span>Mangosuthu Airport</span></p>
+                    <p class="mb-1"><i class="fa-solid fa-phone me-2 text-green"></i>+27 72 630 1604 - <em>Principal: Mrs
+                            A.F Mfeka (Lady-P)</em></p>
+                    <p class="mb-1"><i class="fa-solid fa-envelope me-2 text-green"></i>
+                        <a href="mailto:THENGISANGAYE-PS@kznschools.gov.za"
+                            class="text-decoration-none text-dark">THENGISANGAYE-PS@kznschools.gov.za</a>
+                    </p>
+                    <div class="mt-3 icon-green">
+                        <a href="#" class="me-3 fs-4"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="me-3 fs-4"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="me-3 fs-4"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="fs-4"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Bootstrap 5 JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- AOS JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 900,
+                easing: 'ease-in-out',
+                once: true
+            });
+        </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ...existing hero slider code...
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
